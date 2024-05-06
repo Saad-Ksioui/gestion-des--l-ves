@@ -85,8 +85,12 @@ class EleveController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $eleve = Eleve::findOrFail($id);
+
+        $eleve->delete();
+
+        return redirect()->route('eleves.index')->with('success', 'L\'élève a bien été supprimé');
     }
 }
