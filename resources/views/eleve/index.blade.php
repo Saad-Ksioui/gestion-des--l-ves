@@ -54,7 +54,11 @@
             <td>{{ $eleve->id_club }}</td>
             <td class="d-flex justify-content-between">
               <a href="{{ route('eleves.edit', $eleve->id) }}" class="btn btn-success">Modifier</a>
-              <a href="#" class="btn btn-danger">Supprimer</a>
+              <form action="{{ route('eleves.destroy', $eleve->id) }}" method="POST">
+                @csrf
+                @method('delete')
+                <input type="submit" value="Supprimer" class="btn btn-danger">
+              </form>
               <a href="{{ route('eleves.show', ["id"=>$eleve->id]) }}" id="show">>>></a>
             </td>
           </tr>
