@@ -43,6 +43,9 @@
         </tr>
       </thead>
       <tbody>
+        @php
+          $totalDays = 0;
+        @endphp
         @foreach ($activites as $activite)
           <tr>
             <td>{{ $activite->id }}</td>
@@ -50,9 +53,13 @@
             <td>{{ $activite->dateDebut }}</td>
             <td>{{ $activite->nombreJours }}</td>
           </tr>
+          @php
+            $totalDays += $activite->nombreJours;
+          @endphp
         @endforeach
       </tbody>
     </table>
+    <p class="mt-5">Nombre total des jours {{ $totalDays }}</p>
   </div>
 </body>
 
