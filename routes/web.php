@@ -6,6 +6,7 @@ use App\Http\Controllers\EleveController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resource('eleves', EleveController::class);
 Route::get('/eleves', [EleveController::class, 'index'])->name('eleves.index');
 Route::get('/create', [EleveController::class, 'create'])->name('eleves.create');
 Route::post('/store', [EleveController::class, 'store'])->name('eleves.store');
